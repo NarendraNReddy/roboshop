@@ -65,7 +65,7 @@ VALIDATE $? "extracting catalogue"
 npm install &>> $LOGFILE
 VALIDATE $? "Installing dependencies"
 
-cp /home/ec2-user/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
+cp /home/ec2-user/roboshop/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
 VALIDATE $? "Unable to copy"
 
 systemctl daemon-reload &>> $LOGFILE
@@ -77,7 +77,7 @@ VALIDATE $? "Enable catalogue"
 systemctl start catalogue &>> $LOGFILE
 VALIDATE $? "Start catalogue"
 
-cp -rf {$PWD}/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+cp -rf  mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "Copying mongo repo"
 
 dnf install -y mongodb-mongosh &>> $LOGFILE
