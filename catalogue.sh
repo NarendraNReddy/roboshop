@@ -8,7 +8,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-MONGO_HOST=mongodb.daws78s.online
+MONGO_HOST=mongodb.narendra.shop
 
 VALIDATE(){
    if [ $1 -ne 0 ]
@@ -65,6 +65,7 @@ npm install &>> $LOGFILE
 VALIDATE $? "Installing dependencies"
 
 cp /home/ec2-user/roboshop-shell/catalogue.service /etc/systemd/system/catalogue.service &>> $LOGFILE
+VALIDATE $? "Unable to copy"
 
 systemctl daemon-reload &>> $LOGFILE
 VALIDATE $? "Daemon reload"
